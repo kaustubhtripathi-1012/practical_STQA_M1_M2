@@ -1,0 +1,7 @@
+1. Download jenkins.war (https://www.jenkins.io/download/) -> java -jar jenkins.war --httpPort=8080 -> open http://localhost:8080
+2. Install suggested plugins. Manage Jenkins -> Tools: add JDK and Maven.
+3. New Item -> Freestyle project (or Pipeline using Jenkinsfile).
+4. Source: project folder (Advanced -> Use custom workspace) or Git repo URL.
+5. Build step: Invoke top-level Maven targets -> clean test   (POM: pom.xml)
+6. Post-build: Publish JUnit test result report -> target/surefire-reports/*.xml
+7. Build Now -> view Console Output, Test Result Trend (build history).

@@ -1,0 +1,1 @@
+STQA file download validation sample

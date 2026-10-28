@@ -1,0 +1,2 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Jenkins_Suite"><test name="CI_Tests"><classes><class name="practicals.JenkinsSeleniumTest"/></classes></test></suite>

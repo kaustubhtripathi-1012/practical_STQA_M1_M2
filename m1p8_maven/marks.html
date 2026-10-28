@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><head><title>Student Marks</title></head><body>
+<h2>Student Marks (dynamic table)</h2>
+<table id="marksTable" border="1"><thead><tr><th>Name</th><th>Maths</th><th>Science</th><th>English</th></tr></thead><tbody></tbody></table>
+<script>
+var data=[["Amit",45,52,38],["Neha",72,65,80],["Rahul",30,40,55],["Sneha",58,61,49],["Karan",35,48,59],["Pooja",90,85,77],["Vivek",20,33,41],["Anjali",66,59,70]];
+setTimeout(function(){var tb=document.querySelector("#marksTable tbody");
+data.forEach(function(r){var tr=document.createElement("tr");r.forEach(function(c){var td=document.createElement("td");td.textContent=c;tr.appendChild(td);});tb.appendChild(tr);});},1000);
+</script></body></html>

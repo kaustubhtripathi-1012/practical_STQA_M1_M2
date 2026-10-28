@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    tools { maven 'Maven3'; jdk 'JDK17' }   // configure under Manage Jenkins -> Tools
+    triggers { pollSCM('H/5 * * * *') }       // or build manually / cron
+    stages {
+        stage('Checkout') { steps { checkout scm } }
+        stage('Build')    { steps { bat 'mvn clean compile' } }   // use sh on Linux
+        stage('Test')     { steps { bat 'mvn test -Dsurefire.suiteXmlFiles=testng.xml' } }
+    }
+    post {
+        always {
+            junit 'target/surefire-reports/*.xml'
+            archiveArtifacts artifacts: 'target/surefire-reports/**', allowEmptyArchive: true
+        }
+    }
+}
